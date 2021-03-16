@@ -38,7 +38,7 @@ export default function App() {
          //console.log(pacote.data.subscription)
           //console.log(pacote.data.available)
        });
- }, [])*/
+ }, [])/*/
 
   return (
   
