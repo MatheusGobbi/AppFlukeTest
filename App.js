@@ -10,20 +10,59 @@ import {
   Text,
   useColorScheme,
   View,
+  Image
 } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack'
+
+import MyTabs from './src/components/Navegation';
+import Dicas from './src/components/DicasApp';
+
+
+const Stack = createStackNavigator();
+
+export default function App() {
+  
+  return(
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Dicas" component={Dicas} options={{ headerShown: false}}/>
+          <Stack.Screen name="Navegacao" component={MyTabs} options={{ headerShown: false}}/>
+        </Stack.Navigator>
+      </NavigationContainer>
+  )
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //import api from './src/services/api';
-
-
-const headers = {
-  'Authorization': 'Bearer' + 'example@email.com'
-}
-
-import Navegacao from './src/components/Navegation'
-
-
-export default function App() {
+//aaaaaaaaaa
+//teste
+//const headers = {
+ // 'Authorization': 'Bearer' + 'example@email.com'
+//}
 
   //get api
   /* const [pacote, setPacote] = useState(null)
@@ -39,23 +78,4 @@ export default function App() {
           //console.log(pacote.data.available)
        });
  }, [])/*/
-
-  return (
-  
-      <Navegacao />
-    
-  );
-
-
-}
-
-
-
-const styles = StyleSheet.create({
-
-});
-
-
-//aaaaaaaaaa
-//teste
 

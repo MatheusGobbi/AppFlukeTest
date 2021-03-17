@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Header, Content, Accordion, Title } from "native-base";
+import { Container, Header, Content, Accordion, Title,  Icon } from "native-base";
 import { View, StyleSheet, Text } from 'react-native';
 
 const perguntas = [
@@ -21,10 +21,10 @@ const perguntas = [
 export default function Faq() {
 
     return (
-        <View style={{backgroundColor: '#00FFFF'}}>
+        <View>
      
-     <Header> 
-       <Title style={{paddingTop: 10, fontFamily: 'sans-serif'}}>Perguntas Frequentes:</Title>
+     <Header transparent> 
+       <Title style={{paddingTop: 10, fontFamily: 'sans-serif', color: '#101010'}}>Perguntas Frequentes:</Title>
      </Header>
      
      <Accordion
@@ -36,6 +36,8 @@ export default function Faq() {
          expanded={[]}
          backgroundColor={'#00FFFF'}
        />
+
+
      
    
    </View>

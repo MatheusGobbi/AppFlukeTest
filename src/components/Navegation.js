@@ -24,7 +24,7 @@ function SettingsScreen() {
 
 const Tab = createBottomTabNavigator();
 
-function MyTabs() {
+export default function MyTabs() {
     return (
         
             <Tab.Navigator >
@@ -36,14 +36,14 @@ function MyTabs() {
     );
 }
 
-export default function Navegacao() {
+/*export default function Navegacao() {
     return (
         <NavigationContainer>
             <MyTabs />
         </NavigationContainer>
     );
 }
-
+*/
 
 const styles = StyleSheet.create({
     tabs: {
