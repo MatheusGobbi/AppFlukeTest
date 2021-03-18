@@ -2,18 +2,22 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
-
+import * as Animatable from 'react-native-animatable';
 
 export default function HistoryCard({ data }) {
-    return(
-        <View style={styles.container}>
-                <View style={styles.item}>
-                    <Icon name='arrow-down' size={23} color="#1ed6ff" />
-                    <Text>Resumo dos gasto de tal data</Text>
-                </View>
-
-                
+    return (
+        <Animatable.View
+            animation="bounceInDown"
+            duration={1500}
+            style={styles.container}>
+            <View
+                style={styles.item}>
+                <Icon name='arrow-down' size={23} color="red" />
+                <Text>Resumo dos gasto de tal data</Text>
             </View>
+
+
+        </Animatable.View>
     )
 }
 
@@ -24,8 +28,8 @@ const styles = StyleSheet.create({
         height: '20%',
         justifyContent: 'space-around',
         borderRadius: 8,
-        alignItems: 'center', 
-        marginTop: '15%',
+        alignItems: 'center',
+        marginTop: '6%',
         elevation: 3,
         shadowColor: '#000'
     },

@@ -17,6 +17,8 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import MyTabs from './src/components/Navegation';
 import Dicas from './src/components/DicasApp';
+import Faq from './src/components/Faq';
+
 
 
 const Stack = createStackNavigator();
@@ -24,10 +26,12 @@ const Stack = createStackNavigator();
 export default function App() {
   
   return(
+    
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Dicas" component={Dicas} options={{ headerShown: false}}/>
           <Stack.Screen name="Navegacao" component={MyTabs} options={{ headerShown: false}}/>
+          <Stack.Screen name="FAQs" component={Faq} />
         </Stack.Navigator>
       </NavigationContainer>
   )

@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 import { Container, Header, Content, Accordion, Title,  Icon } from "native-base";
-import { View, StyleSheet, Text } from 'react-native';
-import * as Animatable from 'react-native-animatable';
+import { View, StyleSheet, Text, SafeAreaView, FlatList, StatusBar } from 'react-native';
+
+
+
+import Faqcast from './FaqCast';
+import HistoryCard from './HistoryCard';
+import Topbar from './TopBar';
+
+
+
+
 
 const perguntas = [
   { title: "1. O que é o Fluke App?", content: "O Fluke App é o aplicativo da Fluke. É por lá que você vai pedir e ativar seu chip, comprar seu pacote e acompanhar seu consumo como e quando você quiser, sempre que você precisar. Nele também são feitas todas as alterações de pacote, compra de adicionais, pedido de portabilidade e chat com o time salva-vidas." },
@@ -22,7 +31,56 @@ const perguntas = [
 export default function Faq() {
 
     return (
+      <SafeAreaView style={styles.safe}>
+
       <View>
+      <StatusBar backgroundColor={'#000'} barStyle={'light-content'} />
+
+      
+      </View>
+     
+
+      <View
+       
+      >
+        <FlatList
+          vertical={true}
+          contentContainerStyle={{ paddingBottom: '5%' }}
+          style={styles.list}
+          data={perguntas}
+          keyExtractor={item => item.tite}
+          renderItem={({ item }) => <Faqcast data={item} />}
+        />
+
+      </View>
+
+    </SafeAreaView>
+    );
+  
+}
+
+
+
+const styles = StyleSheet.create({
+
+  safe: {
+    alignItems: 'center',
+    backgroundColor: 'black',
+    paddingTop: '5%',
+    flexDirection: 'column',
+    flex: 1,
+    justifyContent: 'center',
+    
+  } ,
+  list: {
+    flexDirection: 'column',
+    flex: 1
+  }
+});
+
+/*
+
+ <View>
 
       <Header transparent />
       
@@ -35,9 +93,4 @@ export default function Faq() {
           expanded={[0]}
         />
       </View>
-    );
-  
-}
-
-/*
 */

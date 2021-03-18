@@ -1,27 +1,65 @@
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, StatusBar, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { MaterialCommunityIcons } from 'react-native-vector-icons/MaterialCommunityIcons';
+import Feather from 'react-native-vector-icons/Feather';
 
 
 import Card from './Cards';
 import Faq from './Faq';
 import Comprar from './Comprar';
+import Topbar from './TopBar';
 
 
-const Tab = createMaterialBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function MyTabs() {
     return (
 
-        <Tab.Navigator >
-            <Tab.Screen name="Histórico" component={Comprar} />
+        <Tab.Navigator
+            initialRouteName={"Home"}
 
-            <Tab.Screen name="Home" component={Card}  />
+            tabBarOptions={{
+                activeTintColor: "#32CD32",
+                inactiveTintColor: '#fff',
+                style: {backgroundColor: '#000'}
+            }}
 
-            <Tab.Screen name="Settings" component={Faq} />
+           
+        >
+            <Tab.Screen
+                name="Histórico"
+                component={Comprar}
+                options={{
+                    tabBarLabel: 'Histórico',
+                    tabBarIcon: ({ color }) => (
+                        <Feather name='calendar' size={23} color={color} />
+                    ),
+                }}
+            />
+
+            <Tab.Screen
+                name="Home"
+                component={Card}
+                options={{
+                    tabBarLabel: 'Início',
+                    tabBarIcon: ({ color }) => (
+                        <Feather name='home' size={23} color={color} />
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name="Faq"
+                component={Faq}
+                options={{
+                    tabBarLabel: 'Faq',
+                    tabBarIcon: ({ color }) => (
+                        <Feather name='home' size={23} color={color} />
+                    ),
+                }}
+            />
+
         </Tab.Navigator>
 
     );

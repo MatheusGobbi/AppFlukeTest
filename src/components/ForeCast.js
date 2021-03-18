@@ -7,10 +7,10 @@ export default function Forecast({ data }) {
     return(
         <View style={styles.container }>
             <Text>{data.date}</Text>
-            <Icon name='at' size={23} color="#1ed6ff" />
+            <Icon name='at' size={23} color="red" />
             <Text>{data.data} mb</Text>
 
-            <Feather name='phone-call' size={23} color="#1ed6ff" />
+            <Feather name='phone-call' size={23} color="red" />
             <Text>{data.voice} min</Text>
         </View>
     )
@@ -31,5 +31,8 @@ const styles = StyleSheet.create({
         height: '35%',
         elevation: 3,
         shadowColor: '#000'
+    },
+    texto: {
+        
     }
 })
