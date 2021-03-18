@@ -20,7 +20,7 @@ export default function Card() {
   return (
     <Swiper
       shadowColor={'#000'}
-      backgroundColor={'#00FFFF'}
+      backgroundColor={'#1ed6ff'}
       verticalSwipe={false}
       animateCardOpacity={true}
       stackSize={2}
@@ -32,12 +32,12 @@ export default function Card() {
 
 
             <View style={{ alignItems: 'center', flex: 1 }}>
-              <Text style={{marginBottom: 15, fontSize: 22, color: '#00CED1'}}>{card.tipo}</Text>
+              <Text style={{marginBottom: 15, fontSize: 22, color: '#1ed6ff'}}>{card.tipo}</Text>
               <ProgressCircle
                 percent={calcPorcent(card.disponivel, card.total)}
                 radius={140}
                 borderWidth={10}
-                color="#00FFFF"
+                color="#1ed6ff"
                 shadowColor="#999"
                 bgColor="#fff"
               >

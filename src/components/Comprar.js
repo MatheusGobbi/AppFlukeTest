@@ -17,7 +17,8 @@ export default function Hist() {
         <SafeAreaView style={styles.safe}>
             
         <HistoryCard/>
-            <View>
+
+        <View>
                 <FlatList 
                 horizontal={true}
                 contentContainerStyle={{paddingBottom: '5%'}}
@@ -27,7 +28,8 @@ export default function Hist() {
                 renderItem={ ({item}) => <Forecast data={item}/> }
                 />
 
-            </View>
+          </View>
+            
         </SafeAreaView>
 
     )
@@ -37,11 +39,14 @@ export default function Hist() {
 const styles = StyleSheet.create({
      
     safe: {
-        flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#e8f0ff',
-        paddingTop: '5%'
+        paddingTop: '5%',
+        flexDirection: 'column'
+    },
+    days: {
+      height: '30%',
+
     }
 });
 
