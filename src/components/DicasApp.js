@@ -14,6 +14,8 @@ import {
   import AppIntroSlider from 'react-native-app-intro-slider';
   import Navegacao from './Navegation';
 
+  import * as Animatable from 'react-native-animatable';
+
   //itens que serão renderizados com as dicas
   const slides = [
     { 
@@ -33,8 +35,10 @@ import {
   //Renderizando os itens do slide
   function renderSlides({ item }) {
     return(
-      <View style={{flex: 1,  alignItems: 'center', position: 'relative', borderWidth: 3}}>
-        <Image
+      <View style={{flex: 1,  alignItems: 'center', position: 'relative'}}>
+        <Animatable.Image
+          animation="bounceInDown"
+          duration={1500}
           source={item.image}
           style={{ resizeMode: 'center', height: '70%', width: '100%'}}
         />

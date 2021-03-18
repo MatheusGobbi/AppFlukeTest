@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Header, Content, Accordion, Title,  Icon } from "native-base";
 import { View, StyleSheet, Text } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 
 const perguntas = [
   { title: "1. O que é o Fluke App?", content: "O Fluke App é o aplicativo da Fluke. É por lá que você vai pedir e ativar seu chip, comprar seu pacote e acompanhar seu consumo como e quando você quiser, sempre que você precisar. Nele também são feitas todas as alterações de pacote, compra de adicionais, pedido de portabilidade e chat com o time salva-vidas." },
@@ -21,26 +22,19 @@ const perguntas = [
 export default function Faq() {
 
     return (
-        <View>
-     
-     <Header transparent> 
-       <Title style={{paddingTop: 10, fontFamily: 'sans-serif', color: '#101010'}}>Perguntas Frequentes:</Title>
-     </Header>
-     
-     <Accordion
-         dataArray={perguntas}
-         icon="add"
-         expandedIcon="remove"
-         iconStyle={{ color: "green" }}
-         expandedIconStyle={{ color: "red" }}
-         expanded={[]}
-         backgroundColor={'#00FFFF'}
-       />
+      <View>
 
-
-     
-   
-   </View>
+      <Header transparent />
+      
+        <Accordion
+          dataArray={perguntas}
+          icon="add"
+          expandedIcon="remove"
+          iconStyle={{ color: "green" }}
+          expandedIconStyle={{ color: "red" }}
+          expanded={[0]}
+        />
+      </View>
     );
   
 }

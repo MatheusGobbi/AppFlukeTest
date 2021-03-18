@@ -8,6 +8,8 @@ import { Button, DeckSwiper } from 'native-base';
 
 
 
+
+
 export default function Card() {
 
   const pacotes = [
@@ -17,6 +19,7 @@ export default function Card() {
 
   return (
     <Swiper
+      shadowColor={'#000'}
       backgroundColor={'#00FFFF'}
       verticalSwipe={false}
       animateCardOpacity={true}
