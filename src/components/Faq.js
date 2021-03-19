@@ -48,7 +48,7 @@ export default function Faq() {
           contentContainerStyle={{ paddingBottom: '5%' }}
           style={styles.list}
           data={perguntas}
-          keyExtractor={item => item.tite}
+          keyExtractor={item => item.title}
           renderItem={({ item }) => <Faqcast data={item} />}
         />
 

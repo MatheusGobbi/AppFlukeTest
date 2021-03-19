@@ -24,9 +24,9 @@ export default function Topbar({ navigation }) {
                     name='help-circle'
                     size={23}
                     color="#32CD32"
-                    backgroundColor={'transparent'} 
-                    onPress={ () => navigation.navigate('FAQs')}
-                    />
+                    backgroundColor={'transparent'}
+                    onPress={() => navigation.navigate('FAQs')}
+                />
             </View>
 
 
@@ -40,13 +40,15 @@ const styles = StyleSheet.create({
         width: '95%',
         elevation: 3,
         shadowColor: '#000',
+        borderBottomWidth: 1,
+        borderBottomColor: '#101010'
 
     },
     item: {
         alignItems: 'center',
         justifyContent: 'flex-end',
         flexDirection: 'row',
-        
+
 
     },
     title: {
@@ -55,6 +57,8 @@ const styles = StyleSheet.create({
         fontSize: 22,
         flex: 2,
         textAlign: 'center',
-        paddingLeft: '15%'
+        paddingLeft: '15%',
+        paddingBottom: '3%'
+        
     }
 })
