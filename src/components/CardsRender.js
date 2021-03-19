@@ -4,38 +4,18 @@ import { View, Text, SafeAreaView, SafeAreaViewBase } from 'react-native';
 import ProgressCircle from 'react-native-progress-circle';
 
 import Swiper from 'react-native-deck-swiper';
-import { Button, DeckSwiper } from 'native-base';
-
-import Topbar from './TopBar';
-
-import Feather from 'react-native-vector-icons/Feather';
-
-import * as Animatable from 'react-native-animatable';
-
-export default function Card() {
-
-  const pacotes = [
-    { disponivel: 100, total: 170, legenda: 'MB', tipo: 'Dados' },
-    { disponivel: 22, total: 30, legenda: 'min', tipo: 'Minutos' }
-  ]
-
-  return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-        backgroundColor: 'black',
-
-      }}
-    >
-
-
-      <Topbar />
 
 
 
+export default function CardsRender() {
 
-      <Swiper
+    const pacotes = [
+      { disponivel: 100, total: 170, legenda: 'MB', tipo: 'Dados' },
+      { disponivel: 22, total: 30, legenda: 'min', tipo: 'Minutos' }
+    ]
+
+    return(
+        <Swiper
         marginTop={10}
         backgroundColor={'#000'}
         verticalSwipe={false}
@@ -75,50 +55,13 @@ export default function Card() {
           )
         }}
       />
+    )
 
-      <Text style={{ color: '#32CD32', marginTop: '5%' }}>Deslize para qualquer lado</Text>
-
-      <View
-        style={{
-          marginTop: '2%',
-          flexDirection: 'row',
-          alignItems: 'center',
-          width: '70%',
-
-        }}>
-        <Animatable.View
-          animation="slideOutLeft"
-          duration={1500}
-          iterationCount={Infinity}
-          useNativeDriver
-          style={{ alignItems: 'center', flex: 1}}
-        >
-          <Feather name='arrow-left' size={25} color="green" />
-
-        </Animatable.View>
-
-        <Animatable.View
-          animation="slideOutRight"
-          duration={1500}
-          iterationCount={Infinity}
-          useNativeDriver
-          style={{ alignItems: 'center', flex: 1 }}
-        >
-          <Feather name='arrow-right' size={25} color="green" />
-
-        </Animatable.View>
-
-      </View>
-    </View>
-  )
 }
 
 // calcular porcentagem da roda dados
 function calcPorcent(disp, total) {
-  const porcent = disp * 100 / total;
-  //console.log(porcent)
-  return porcent;
-}
-
-
-
+    const porcent = disp * 100 / total;
+    //console.log(porcent)
+    return porcent;
+  }

@@ -6,9 +6,9 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import Feather from 'react-native-vector-icons/Feather';
 
 
-import Card from './Cards';
-import Faq from './Faq';
-import Hist from './Historico';
+import Home from '../pages/HomePage';
+import Faq from '../pages/FaqPage';
+import Hist from '../pages/HistoricoPage';
 import Shop from './Shop';
 import Topbar from './TopBar';
 
@@ -42,7 +42,7 @@ export default function MyTabs() {
 
             <Tab.Screen
                 name="Home"
-                component={Card}
+                component={Home}
                 options={{
                     tabBarLabel: 'Início',
                     tabBarIcon: ({ color }) => (

@@ -4,9 +4,9 @@ import { View, StyleSheet, Text, SafeAreaView, FlatList, StatusBar } from 'react
 
 
 
-import Faqcast from './FaqCast';
-import HistoryCard from './HistoryCard';
-import Topbar from './TopBar';
+import Faqcast from '../components/FaqCast';
+import HistoryCard from '../components/HistoryCard';
+import Topbar from '../components/TopBar';
 
 
 

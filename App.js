@@ -1,4 +1,3 @@
-import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react';
 
@@ -17,7 +16,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import MyTabs from './src/components/Navegation';
 import Dicas from './src/components/DicasApp';
-import Faq from './src/components/Faq';
+import Faq from './src/pages/FaqPage';
 
 
 
@@ -31,7 +30,7 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen name="Dicas" component={Dicas} options={{ headerShown: false}}/>
           <Stack.Screen name="Navegacao" component={MyTabs} options={{ headerShown: false}}/>
-          <Stack.Screen name="FAQs" component={Faq} />
+          <Stack.Screen name="Faq" component={Faq} />
         </Stack.Navigator>
       </NavigationContainer>
   )
