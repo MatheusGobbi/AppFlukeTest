@@ -17,7 +17,7 @@ export default function Topbar({ navigation }) {
                     iterationCount={Infinity}
                     style={styles.title}
                 >
-                    Dark APP
+                    Dark App
                 </Animatable.Text>
 
                 <Feather.Button

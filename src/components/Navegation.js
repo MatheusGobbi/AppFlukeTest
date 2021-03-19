@@ -8,7 +8,8 @@ import Feather from 'react-native-vector-icons/Feather';
 
 import Card from './Cards';
 import Faq from './Faq';
-import Comprar from './Comprar';
+import Hist from './Historico';
+import Shop from './Shop';
 import Topbar from './TopBar';
 
 
@@ -30,7 +31,7 @@ export default function MyTabs() {
         >
             <Tab.Screen
                 name="Histórico"
-                component={Comprar}
+                component={Hist}
                 options={{
                     tabBarLabel: 'Histórico',
                     tabBarIcon: ({ color }) => (
@@ -50,12 +51,12 @@ export default function MyTabs() {
                 }}
             />
             <Tab.Screen
-                name="Faq"
-                component={Faq}
+                name="Compre"
+                component={Shop}
                 options={{
-                    tabBarLabel: 'Faq',
+                    tabBarLabel: 'Compre',
                     tabBarIcon: ({ color }) => (
-                        <Feather name='home' size={23} color={color} />
+                        <Feather name='shopping-cart' size={23} color={color} />
                     ),
                 }}
             />

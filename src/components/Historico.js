@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   safe: {
     alignItems: 'center',
     backgroundColor: 'black',
-    paddingTop: '5%',
+    
     flexDirection: 'column'
   },
   days: {

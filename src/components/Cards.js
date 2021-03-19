@@ -25,7 +25,6 @@ export default function Card() {
         flex: 1,
         alignItems: 'center',
         backgroundColor: 'black',
-        paddingTop: '5%',
 
       }}
     >
@@ -37,7 +36,7 @@ export default function Card() {
 
 
       <Swiper
-        marginTop={30}
+        marginTop={10}
         backgroundColor={'#000'}
         verticalSwipe={false}
         animateCardOpacity={true}
