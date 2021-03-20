@@ -12,7 +12,7 @@ import {
   } from 'react-native';
 
   import AppIntroSlider from 'react-native-app-intro-slider';
-  import Navegacao from './Navegation';
+
 
   import * as Animatable from 'react-native-animatable';
 

@@ -13,6 +13,7 @@ import Shop from './Shop';
 import Topbar from './TopBar';
 
 
+
 const Tab = createBottomTabNavigator();
 
 export default function MyTabs() {
@@ -59,10 +60,12 @@ export default function MyTabs() {
                         <Feather name='shopping-cart' size={23} color={color} />
                     ),
                 }}
-            />
+            />  
+            
 
         </Tab.Navigator>
-
+       
+                
     );
 }
 

@@ -5,7 +5,7 @@ import * as Animatable from 'react-native-animatable';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import TopBar from './TopBar';
-
+import Adicional from './testeModalize';
 
 
 
@@ -66,7 +66,7 @@ export default function Shop({ }) {
                     <View style={styles.assinatura}>
 
                         <View style={{ flex: 1, justifyContent: 'center', paddingLeft: '10%' }}>
-                            <Text>Valor do pacote</Text>
+                            <Text>Valor total do pacote</Text>
                         </View>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -75,9 +75,13 @@ export default function Shop({ }) {
 
                     </View>
 
+
+                        
                 </View>
 
             </Animatable.View>
+
+            <Adicional/>
         </SafeAreaView>
     )
 }
@@ -86,7 +90,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
         width: '95%',
-        height: '80%',
+        height: '45%',
         borderRadius: 8,
         marginTop: '6%',
         elevation: 3,
@@ -95,7 +99,7 @@ const styles = StyleSheet.create({
     item: {
         backgroundColor: '#D3D3D3',
         width: '90%',
-        height: '40%',
+        height: '70%',
         marginTop: '3%',
         marginLeft: '5%',
         borderRadius: 10,

@@ -9,11 +9,14 @@ import HistCardDay from '../components/HistCardDay';
 
 
 
-export default function Hist() {
+
+export default function Hist({navigation}) {
   return (
     <SafeAreaView style={styles.safe}>
 
       <Topbar />
+
+    
       <HistoryCard />
       <HistCardDay/>
 

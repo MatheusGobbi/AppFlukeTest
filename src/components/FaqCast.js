@@ -1,14 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
 import * as Animatable from 'react-native-animatable';
+import FaqModal from './FaqModalize';
+
+
 
 export default function Faqcast({ data }) {
-
- 
-
 
     return (
         <Animatable.View
@@ -16,7 +16,9 @@ export default function Faqcast({ data }) {
             duration={1500}
             style={styles.container}>
 
-            <TouchableWithoutFeedback>
+            <TouchableOpacity
+                onPress ={ () => <FaqModal/>}
+            >
                 <View style={{ flexDirection: 'row' }}>
                     <Text style={styles.texto}>{data.title}</Text>
 
@@ -25,7 +27,7 @@ export default function Faqcast({ data }) {
                     </View>
                 </View>
 
-            </TouchableWithoutFeedback>
+            </TouchableOpacity>
 
 
         </Animatable.View>

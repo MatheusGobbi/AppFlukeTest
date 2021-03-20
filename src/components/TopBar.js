@@ -4,7 +4,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
 
 
-export default function Topbar({ navigation }) {
+export default function Topbar( { navigation } ) {
     return (
 
         <View style={styles.container}>
@@ -25,7 +25,7 @@ export default function Topbar({ navigation }) {
                     size={23}
                     color="#32CD32"
                     backgroundColor={'transparent'}
-                    onPress={() => navigation.navigate('FAQs')}
+                    onPress={() => navigation.navigate('Navegacao')}
                 />
             </View>
 
