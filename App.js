@@ -1,4 +1,5 @@
 import 'react-native-gesture-handler';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import React, { useEffect, useState } from 'react';
 
 import {
@@ -12,12 +13,15 @@ import {
   Image
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack'
+import { createStackNavigator, TransitionPresets  } from '@react-navigation/stack'
 
 import MyTabs from './src/components/Navegation';
 import Dicas from './src/components/DicasApp';
 import Faq from './src/pages/FaqPage';
-import TopBar from './src/components/TopBar'
+import TopBar from './src/components/TopBar';
+import FaqModal from './src/components/FaqModalize';
+
+
 
 
 
@@ -28,11 +32,15 @@ export default function App() {
   return(
     
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Faq">
+        <Stack.Navigator initialRouteName="Dicas" 
+        >
+        
           <Stack.Screen name="Dicas" component={Dicas} options={{ headerShown: false}}/>
           <Stack.Screen name="Navegacao" component={MyTabs} options={{ headerShown: false}}/>
           <Stack.Screen name="TopBar" component={TopBar} options={{ headerShown: false}}/>
           <Stack.Screen name="Faq" component={Faq} />
+          <Stack.Screen name="FaqModal" component={FaqModal} />
+    
         </Stack.Navigator>
       </NavigationContainer>
   )
@@ -41,7 +49,20 @@ export default function App() {
 
 
 
-
+/**UTIL
+ *  headerMode='none'
+          
+          screenOptions={() => {
+            return {
+              gestureEnabled: true,
+              cardOverlayEnabled: true,
+              ...TransitionPresets.ModalPresentationIOS,
+            };
+          }}
+          mode="modal"
+ * 
+ * 
+ */
 
 
 

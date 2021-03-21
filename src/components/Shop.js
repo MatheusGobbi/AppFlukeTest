@@ -6,10 +6,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import TopBar from './TopBar';
 import Adicional from './testeModalize';
+import { Button } from 'native-base';
 
 
 
-export default function Shop({ }) {
+export default function Shop({ navigation }) {
 
     const data = [
 
@@ -22,7 +23,7 @@ export default function Shop({ }) {
 
     return (
         <SafeAreaView style={{ backgroundColor: '#000', flex: 1, alignItems: 'center' }}>
-            <TopBar />
+            <TopBar navigation={navigation}/>
 
             <Animatable.View
                 animation="bounceInDown"

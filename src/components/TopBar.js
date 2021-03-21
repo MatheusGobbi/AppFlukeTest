@@ -19,14 +19,15 @@ export default function Topbar( { navigation } ) {
                 >
                     Dark App
                 </Animatable.Text>
-
+            <View >
                 <Feather.Button
                     name='help-circle'
                     size={23}
                     color="#32CD32"
                     backgroundColor={'transparent'}
-                    onPress={() => navigation.navigate('Navegacao')}
+                    onPress={() => navigation.navigate('Faq')}
                 />
+                </View>
             </View>
 
 
@@ -37,12 +38,12 @@ export default function Topbar( { navigation } ) {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#000',
-        width: '95%',
+        width: '100%',
         elevation: 3,
         shadowColor: '#000',
         borderBottomWidth: 1,
-        borderBottomColor: '#101010'
-
+        borderBottomColor: '#101010',
+        
     },
     item: {
         alignItems: 'center',

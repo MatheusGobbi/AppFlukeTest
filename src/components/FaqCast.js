@@ -1,14 +1,21 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 
 import * as Animatable from 'react-native-animatable';
-import FaqModal from './FaqModalize';
+
+import {  Overlay } from 'react-native-elements';
 
 
 
-export default function Faqcast({ data }) {
+
+export default function Faqcast({ data, navigation }) {
+
+    const [visible, setVisible] = useState(false);
+
+    const toggleOverlay = () => {
+        setVisible(!visible);
+    };
 
     return (
         <Animatable.View
@@ -16,9 +23,12 @@ export default function Faqcast({ data }) {
             duration={1500}
             style={styles.container}>
 
+
+
             <TouchableOpacity
-                onPress ={ () => <FaqModal/>}
+                onPress={toggleOverlay}
             >
+
                 <View style={{ flexDirection: 'row' }}>
                     <Text style={styles.texto}>{data.title}</Text>
 
@@ -29,12 +39,24 @@ export default function Faqcast({ data }) {
 
             </TouchableOpacity>
 
+            <Overlay 
+                isVisible={visible} 
+                onBackdropPress={toggleOverlay}
+                overlayStyle={ {width: '90%', borderRadius: 10, elevation: 3, padding: '5%'}}
+            >
+                
+                <Text style={{fontSize: 18}}>{data.content}</Text>
+            </Overlay>
+
 
         </Animatable.View>
 
     )
 
 }
+
+
+
 
 const styles = StyleSheet.create({
     container: {
@@ -52,7 +74,8 @@ const styles = StyleSheet.create({
     texto: {
         width: '93%',
         fontSize: 15,
-    }
+    },
+
 })
 
 //<Icon name='at' size={23} color="red" />

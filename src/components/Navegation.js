@@ -16,7 +16,7 @@ import Topbar from './TopBar';
 
 const Tab = createBottomTabNavigator();
 
-export default function MyTabs() {
+export default function MyTabs() { 
     return (
 
         <Tab.Navigator

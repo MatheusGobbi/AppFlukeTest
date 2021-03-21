@@ -19,7 +19,6 @@ export default function LegendaHome() {
             flex: 1,
             alignItems: 'center',
             
-    
           }}
         >
         
