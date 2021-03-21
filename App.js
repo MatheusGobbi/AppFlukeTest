@@ -38,7 +38,7 @@ export default function App() {
           <Stack.Screen name="Dicas" component={Dicas} options={{ headerShown: false}}/>
           <Stack.Screen name="Navegacao" component={MyTabs} options={{ headerShown: false}}/>
           <Stack.Screen name="TopBar" component={TopBar} options={{ headerShown: false}}/>
-          <Stack.Screen name="Faq" component={Faq} />
+          <Stack.Screen name="Peruntas Frequentes sobre o App" component={Faq} />
           <Stack.Screen name="FaqModal" component={FaqModal} />
     
         </Stack.Navigator>
