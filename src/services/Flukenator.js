@@ -25,5 +25,14 @@ class Flukenator {
       },
     );
   };
+  getHistorico = async (startDate = '2020-08-17', endDate = '2020-08-21') => {
+    const response = await this.instance.get(
+      `/usage/records?startDate=${startDate}&endDate=${endDate}`,
+      {
+        headers: this.headers,
+      },
+    );
+    return response.data;
+  };
 }
 export default new Flukenator('https://flukenator.herokuapp.com/');

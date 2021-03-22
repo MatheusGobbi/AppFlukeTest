@@ -1,17 +1,75 @@
-import React from 'react';
-import {StyleSheet, SafeAreaView} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {StyleSheet, SafeAreaView, Dimensions} from 'react-native';
 
 import HistoryCard from '../components/HistoryCard';
 import Topbar from '../components/TopBar';
 import HistCardDay from '../components/HistCardDay';
+import {BarChart} from 'react-native-chart-kit';
+import api from '../services/Flukenator';
 
-export default function Hist({navigation}) {
+// TODO: Data picker https://www.npmjs.com/package/react-native-daterange-picker
+
+const INITIAL_DATA = {
+  labels: [],
+  datasets: [{data: []}],
+};
+
+export default function HistoricoPage({navigation}) {
+  // const data = {
+  //   labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+  //   datasets: [
+  //     {
+  //       data: [20, 45, 28, 80, 99, 43],
+  //     },
+  //   ],
+  //  };
+
+  const [data, setData] = useState(INITIAL_DATA);
+
+  useEffect(() => {
+    api.getHistorico().then(historico => {
+      const newData = INITIAL_DATA;
+      for (const item of historico) {
+        newData.labels.push(item.date);
+        newData.datasets[0].data.push(item.data / 1048576);
+      }
+      setData(newData);
+    });
+  }, []);
+
   return (
     <SafeAreaView style={styles.safe}>
       <Topbar navigation={navigation} />
 
-      <HistoryCard />
-      <HistCardDay />
+      <BarChart
+        // style={graphStyle}
+        data={data}
+        width={Dimensions.get('screen').width}
+        height={300}
+        yAxisLabel="MB"
+        chartConfig={{
+          backgroundColor: 'blue',
+          // backgroundGradientFrom: '#fb8c00',
+          //backgroundGradientTo: 'red',
+          decimalPlaces: 2, // optional, defaults to 2dp
+          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+          labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+          style: {
+            borderRadius: 16,
+          },
+          propsForDots: {
+            r: '6',
+            strokeWidth: '2',
+            stroke: '#ffa726',
+          },
+        }}
+        verticalLabelRotation={30}
+      />
+      {/*
+          <HistoryCard />
+          <HistCardDay />
+
+        */}
     </SafeAreaView>
   );
 }
@@ -20,77 +78,7 @@ const styles = StyleSheet.create({
   safe: {
     alignItems: 'center',
     backgroundColor: 'black',
-
+    padding: '3%',
     flexDirection: 'column',
   },
 });
-
-/*import React from 'react';
-import {Text} from 'react-native-svg';
-
-import {PieChart} from 'react-native-svg-charts';
-
-export default function Pizza() {
-  const data = [10, 10, 10, 15, 85, 91, 35, 53, 24, 50];
-
-  const pieData = data.map((value, index) => ({
-    value,
-    key: `${index}-${value}`,
-    svg: {
-      fill: (
-        '#' +
-        ((Math.random() * 0xffffff) << 0).toString(16) +
-        '000000'
-      ).slice(0, 7),
-    },
-  }));
-
-  const Labels = ({slices}) => {
-    return slices.map((slice, index) => {
-      const {pieCentroid, data} = slice;
-      return (
-        <Text
-          key={`label-${index}`}
-          x={pieCentroid[0]}
-          y={pieCentroid[1]}
-          fill="black"
-          textAnchor={'middle'}
-          alignmentBaseline={'middle'}
-          fontSize={24}
-          strokeWidth={0.2}>
-          {data.value}
-        </Text>
-      );
-    });
-  };
-
-  return (
-    <PieChart style={{height: 500}} data={pieData}>
-      <Labels />
-    </PieChart>
-  );
-}*/
-
-/*
-import React from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-} from 'react-native';
-import { BarChart, Grid } from 'react-native-svg-charts'
-
-
-export default function Comprar() {
-    const fill = 'rgb(134, 65, 244)'
-    const data = [50, 10, 40, 95]
-
-    return (
-
-            <BarChart style={{ height: 200, alignItems: 'center', position: 'relative' }} data={data} svg={{ fill }}
-            contentInset={{ top: 30, bottom: 30 }} spacingInner={0.1} spacingOuter={1}>
-                <Grid />
-            </BarChart>
-
-    )
-}*/
