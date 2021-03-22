@@ -2,7 +2,7 @@ export default [
   {
     title: '1. O que é o Fluke App?',
     content:
-      'O Fluke App\n é o aplicativo da Fluke. É por lá que você vai pedir e ativar seu chip, comprar seu pacote e acompanhar seu consumo como e quando você quiser, sempre que você precisar. Nele também são feitas todas as alterações de pacote, compra de adicionais, pedido de portabilidade e chat com o time salva-vidas.',
+      'O Fluke App é o aplicativo da Fluke. É por lá que você vai pedir e ativar seu chip, comprar seu pacote e acompanhar seu consumo como e quando você quiser, sempre que você precisar. Nele também são feitas todas as alterações de pacote, compra de adicionais, pedido de portabilidade e chat com o time salva-vidas.',
   },
   {
     title: '2. O aplicativo da Fluke pode ser usado em IPads ou Tablets?',
@@ -39,12 +39,12 @@ export default [
     title:
       '9. Como eu edito os dados do meu cartão de crédito ou adiciono um novo?',
     content:
-      'Para editar os dados do seu cartão de crédito você pode acessar o nosso aplicativo, ir em perfil no menu inferior, acessar forma de pagamento, clicar sobre o cartão que deseja editar e selecionar editar.Você terá a opção de cadastrar um novo cartão clicando em + novo cartão ou selecionar um cartão já cadastrado. Caso você queira utilizar um dos cartões cadastrados basta clicar sobre ele e selecionar usar cartão. Aliás, você não consegue excluir o cartão atual de pagamento, apenas alterá-lo. Você precisa ter algum tipo de pagamento disponível :)',
+      ' Para editar os dados do seu cartão de crédito você pode acessar o nosso aplicativo, ir em perfil no menu inferior, acessar forma de pagamento, clicar sobre o cartão que deseja editar e selecionar editar.\n\n Você terá a opção de cadastrar um novo cartão clicando em + novo cartão ou selecionar um cartão já cadastrado. Caso você queira utilizar um dos cartões cadastrados basta clicar sobre ele e selecionar usar cartão.\n\n Aliás, você não consegue excluir o cartão atual de pagamento, apenas alterá-lo. Você precisa ter algum tipo de pagamento disponível :)',
   },
   {
     title: '10. Como eu faço para alterar minha senha?',
     content:
-      'Para alterar sua senha você pode acessar o nosso aplicativo, ir em perfil, acessar minha conta e clicar em alterar senha. Caso você tenha esquecido sua senha, ao logar no aplicativo, clicando em já sou cliente, aparecerá a opção esqueci minha senha. Basta clicar nela e seguir o passo-a-passo para cadastrar uma nova senha.',
+      'Para alterar sua senha você pode acessar o nosso aplicativo, ir em perfil, acessar minha conta e clicar em alterar senha.\n\n Caso você tenha esquecido sua senha, ao logar no aplicativo, clicando em já sou cliente, aparecerá a opção esqueci minha senha. Basta clicar nela e seguir o passo-a-passo para cadastrar uma nova senha.',
   },
   {
     title: '11. Ocorreu um erro com o meu aplicativo, o que eu faço?',
