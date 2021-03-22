@@ -2,31 +2,14 @@ import React, {useMemo} from 'react';
 import {View, Text, SafeAreaView} from 'react-native';
 
 import ProgressCircle from 'react-native-progress-circle';
-
 import Swiper from 'react-native-deck-swiper';
+import {StyleSheet} from 'react-native';
 
 const InternalCard = ({card}) => (
   <SafeAreaView style={{flex: 1}}>
-    <View
-      style={{
-        backgroundColor: 'white',
-        width: '100%',
-        height: '70%',
-        borderRadius: 30,
-        alignItems: 'center',
-        padding: '10%',
-        marginTop: '20%',
-      }}>
+    <View style={styles.container}>
       <View style={{alignItems: 'center', flex: 1}}>
-        <Text
-          style={{
-            marginBottom: 15,
-            fontSize: 22,
-            color: '#000',
-            fontWeight: 'bold',
-          }}>
-          {card.tipo}
-        </Text>
+        <Text style={styles.text}>{card.tipo}</Text>
         <ProgressCircle
           percent={calcPorcent(card.available, card.subscription + card.topup)}
           radius={140}
@@ -95,3 +78,21 @@ function calcPorcent(disponivel, total) {
   const porcent = (disponivel * 100) / total;
   return porcent;
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'white',
+    width: '100%',
+    height: '70%',
+    borderRadius: 30,
+    alignItems: 'center',
+    padding: '10%',
+    marginTop: '20%',
+  },
+  text: {
+    marginBottom: 15,
+    fontSize: 22,
+    color: '#000',
+    fontWeight: 'bold',
+  },
+});

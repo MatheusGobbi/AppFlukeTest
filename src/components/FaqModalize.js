@@ -1,6 +1,5 @@
-import React, {useRef} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import {Modalize} from 'react-native-modalize';
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 
 export default function FaqModal() {
   return (

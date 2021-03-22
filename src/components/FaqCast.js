@@ -1,11 +1,5 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 
 import * as Animatable from 'react-native-animatable';
@@ -28,12 +22,7 @@ export default function Faqcast({data, navigation}) {
         <View style={{flexDirection: 'row'}}>
           <Text style={styles.texto}>{data.title}</Text>
 
-          <View
-            style={{
-              alignItems: 'flex-end',
-              justifyContent: 'center',
-              paddingLeft: 2,
-            }}>
+          <View style={styles.iconView}>
             <Feather name="corner-right-down" size={18} color="green" />
           </View>
         </View>
@@ -71,6 +60,9 @@ const styles = StyleSheet.create({
     width: '93%',
     fontSize: 15,
   },
+  iconView: {
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    paddingLeft: 2,
+  },
 });
-
-//<Icon name='at' size={23} color="red" />

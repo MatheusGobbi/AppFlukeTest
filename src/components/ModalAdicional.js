@@ -11,8 +11,6 @@ import Feather from 'react-native-vector-icons/Feather';
 
 export default function ModalAdicional({fnCompraAdicional}) {
   const modalizeRef = useRef(null);
-  // TODO: Corrigir estado do calculo original
-  // TODO: toflixed em tudo
   const [carregando, setCarregando] = useState(false);
 
   const [contadorData, setContadorData] = useState(0.0);
@@ -21,35 +19,36 @@ export default function ModalAdicional({fnCompraAdicional}) {
   const [totalMin, setTotalMin] = useState(0);
   const [total, setTotal] = useState(0);
 
+  //Funções de manipulação de valores, gigas e minutos
   const incrementData = useCallback(() => {
     if (contadorData < 10) {
       setContadorData(contadorData + 0.5);
-      setTotal(total + 4.99);
-      setTotalData(totalData + 4.99);
+      setTotal(total + 5);
+      setTotalData(totalData + 5);
     }
   }, [contadorData, total, totalData]);
 
   const decrementData = useCallback(() => {
     if (contadorData > 0) {
       setContadorData(contadorData - 0.5);
-      setTotal(total - 4.99);
-      setTotalData(totalData - 4.99);
+      setTotal(total - 5);
+      setTotalData(totalData - 5);
     }
   }, [contadorData, total, totalData]);
 
   const incrementMin = useCallback(() => {
     if (contadorMin < 600) {
       setContadorMin(contadorMin + 30);
-      setTotal(total + 3.0);
-      setTotalMin(totalMin + 3.0);
+      setTotal(total + 3);
+      setTotalMin(totalMin + 3);
     }
   }, [totalMin, contadorMin, total]);
 
   const decrementMin = useCallback(() => {
     if (contadorMin > 0) {
       setContadorMin(contadorMin - 30);
-      setTotal(total - 3.0);
-      setTotalMin(totalMin - 3.0);
+      setTotal(total - 3);
+      setTotalMin(totalMin - 3);
     }
   }, [totalMin, contadorMin, total]);
 
@@ -78,7 +77,7 @@ export default function ModalAdicional({fnCompraAdicional}) {
 
                 <View style={{paddingTop: '5%'}}>
                   <Text> gigas</Text>
-                  <Text> R${totalData}</Text>
+                  <Text> R${totalData},00</Text>
                 </View>
               </View>
 
@@ -97,7 +96,7 @@ export default function ModalAdicional({fnCompraAdicional}) {
 
                 <View>
                   <Text> minutos</Text>
-                  <Text> R${totalMin}</Text>
+                  <Text> R${totalMin},00</Text>
                 </View>
               </View>
             </View>
@@ -149,7 +148,7 @@ export default function ModalAdicional({fnCompraAdicional}) {
           </View>
           <View style={styles.bottommenu}>
             <Text> Valor total</Text>
-            <Text style={{fontSize: 22}}> R${total}</Text>
+            <Text style={{fontSize: 22}}> R${total},00</Text>
           </View>
 
           <TouchableOpacity
@@ -160,6 +159,8 @@ export default function ModalAdicional({fnCompraAdicional}) {
                 () => {
                   setContadorData(0);
                   setContadorMin(0);
+                  setTotalMin(0);
+                  setTotalData(0);
                   setTotal(0);
                   setCarregando(false);
                 },

@@ -1,12 +1,5 @@
 import React from 'react';
-import {View, Text, SafeAreaView, SafeAreaViewBase} from 'react-native';
-
-import ProgressCircle from 'react-native-progress-circle';
-
-import Swiper from 'react-native-deck-swiper';
-import {Button, DeckSwiper} from 'native-base';
-
-import Topbar from './TopBar';
+import {View, Text, StyleSheet} from 'react-native';
 
 import Feather from 'react-native-vector-icons/Feather';
 
@@ -14,22 +7,12 @@ import * as Animatable from 'react-native-animatable';
 
 export default function LegendaHome() {
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-      }}>
+    <View style={styles.container}>
       <Text style={{color: '#32CD32', marginTop: '5%'}}>
         Deslize para qualquer lado
       </Text>
 
-      <View
-        style={{
-          marginTop: '2%',
-          flexDirection: 'row',
-          alignItems: 'center',
-          width: '70%',
-        }}>
+      <View style={styles.setasView}>
         <Animatable.View
           animation="slideOutLeft"
           duration={1500}
@@ -51,3 +34,16 @@ export default function LegendaHome() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  setasView: {
+    marginTop: '2%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '70%',
+  },
+});

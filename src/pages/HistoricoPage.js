@@ -1,13 +1,9 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {StyleSheet, SafeAreaView, Dimensions, Text, View} from 'react-native';
-import {DatePicker} from 'native-base';
 
 import Topbar from '../components/TopBar';
 import {BarChart} from 'react-native-chart-kit';
 import api from '../services/Flukenator';
-
-import DateTimePicker from '@react-native-community/datetimepicker';
-// TODO: Data picker https://www.npmjs.com/package/react-native-daterange-picker
 
 export default function HistoricoPage({navigation}) {
   const [data, setData] = useState({
@@ -60,7 +56,6 @@ export default function HistoricoPage({navigation}) {
 
       <View style={styles.grafico}>
         <BarChart
-          // style={graphStyle}
           data={data}
           width={Dimensions.get('window').width}
           height={250}
@@ -90,7 +85,6 @@ export default function HistoricoPage({navigation}) {
 
       <View style={styles.grafico}>
         <BarChart
-          // style={graphStyle}
           data={voice}
           width={Dimensions.get('window').width}
           height={250}
@@ -131,36 +125,3 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 });
-
-/*
-
- const [date, setDate] = useState(new Date(1598051730000));
-  const [show, setShow] = useState(false);
-
-  const onChange = (event, selectedDate) => {
-    setDate(selectedDate);
-    console.log(date);
-  };
-  const showDatepicker = () => {
-    setShow(true);
-  };
-
-
-
- <View>
-        <Button onPress={showDatepicker} title="Show date picker!" />
-      </View>
-      {show && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          value={date}
-          mode={'date'}
-          is24Hour={true}
-          display="default"
-          onChange={onChange}
-        />
-      )}
-
-
-
-*/

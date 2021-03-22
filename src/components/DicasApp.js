@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Text, View} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 
 import AppIntroSlider from 'react-native-app-intro-slider';
 
@@ -11,8 +11,7 @@ const slides = [
   {
     key: '1',
     title: 'Agora que entrou no App vamos as dicas',
-    text:
-      'Vamos passar por algumas dicas de como usar o Aplicativo!',
+    text: 'Vamos passar por algumas dicas de como usar o Aplicativo!',
     image: require('../assets/celApp.png'),
   },
   {
@@ -41,33 +40,15 @@ const slides = [
 //Renderizando os itens do slide
 function renderSlides({item}) {
   return (
-    <View style={{flex: 1, alignItems: 'center', position: 'relative'}}>
+    <View style={styles.imageView}>
       <Animatable.Image
         animation="bounceInDown"
         duration={1500}
         source={item.image}
         style={{resizeMode: 'center', height: '70%', width: '100%'}}
       />
-      <Text
-        style={{
-          paddingTop: 25,
-          paddingBottom: 10,
-          fontSize: 23,
-          fontWeight: 'bold',
-          color: '#32CD32',
-          textAlign: 'center',
-        }}>
-        {item.title}
-      </Text>
-      <Text
-        style={{
-          textAlign: 'center',
-          color: '#B5B5B5',
-          paddingHorizontal: 25,
-          fontSize: 15,
-        }}>
-        {item.text}
-      </Text>
+      <Text style={styles.title}>{item.title}</Text>
+      <Text style={styles.text}>{item.text}</Text>
     </View>
   );
 }
@@ -85,3 +66,25 @@ export default function Dicas(props) {
     />
   );
 }
+
+const styles = StyleSheet.create({
+  title: {
+    paddingTop: 25,
+    paddingBottom: 10,
+    fontSize: 23,
+    fontWeight: 'bold',
+    color: '#32CD32',
+    textAlign: 'center',
+  },
+  text: {
+    textAlign: 'center',
+    color: '#B5B5B5',
+    paddingHorizontal: 25,
+    fontSize: 15,
+  },
+  imageView: {
+    flex: 1,
+    alignItems: 'center',
+    position: 'relative',
+  },
+});

@@ -3,6 +3,9 @@ import {View, StyleSheet, StatusBar} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
 
+/**
+ *Componente cabeçalho das páginas principais
+ */
 export default function Topbar({navigation}) {
   return (
     <View style={styles.container}>

@@ -23,15 +23,7 @@ export default function MeuPacote({pacote}) {
       <Text style={styles.title}>Meu pacote</Text>
 
       <View style={styles.item}>
-        <Text
-          style={{
-            marginLeft: '3%',
-            marginTop: '3%',
-            fontSize: 16,
-            textAlign: 'center',
-          }}>
-          Pacote atual
-        </Text>
+        <Text style={styles.mensal}>Mensal</Text>
 
         <View style={styles.pac}>
           <View style={styles.intView}>
@@ -51,14 +43,7 @@ export default function MeuPacote({pacote}) {
             <Text> min</Text>
           </View>
         </View>
-        <View
-          style={{
-            borderBottomWidth: 1,
-            alignItems: 'center',
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            paddingBottom: '2%',
-          }}>
+        <View style={styles.pacoteMensal}>
           <Text> + assinatura mensal </Text>
           <Text>R$8,00</Text>
         </View>
@@ -126,6 +111,19 @@ const styles = StyleSheet.create({
   assinatura: {
     height: '35%',
     flexDirection: 'row',
+  },
+  pacoteMensal: {
+    borderBottomWidth: 1,
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingBottom: '2%',
+  },
+  mensal: {
+    marginLeft: '3%',
+    marginTop: '3%',
+    fontSize: 16,
+    textAlign: 'center',
   },
 });
 
