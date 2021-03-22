@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {StyleSheet, SafeAreaView, Dimensions} from 'react-native';
 
 import HistoryCard from '../components/HistoryCard';
@@ -8,11 +8,6 @@ import {BarChart} from 'react-native-chart-kit';
 import api from '../services/Flukenator';
 
 // TODO: Data picker https://www.npmjs.com/package/react-native-daterange-picker
-
-const INITIAL_DATA = {
-  labels: [],
-  datasets: [{data: []}],
-};
 
 export default function HistoricoPage({navigation}) {
   // const data = {
@@ -24,18 +19,33 @@ export default function HistoricoPage({navigation}) {
   //   ],
   //  };
 
-  const [data, setData] = useState(INITIAL_DATA);
+  const [data, setData] = useState({
+    labels: [],
+    datasets: [{data: []}],
+  });
+
+  const getHistorico = useCallback(
+    (startDate = '2020-03-01', endDate = '2020-03-05') => {
+      api.getHistorico(startDate, endDate).then(historico => {
+        let newData = {
+          labels: [],
+          datasets: [{data: []}],
+        };
+        for (const item of historico) {
+          newData.labels.push(
+            item.date.split('-')[2] + '/' + item.date.split('-')[1],
+          );
+          newData.datasets[0].data.push(item.data / 1048576);
+        }
+        setData(newData);
+      });
+    },
+    [],
+  );
 
   useEffect(() => {
-    api.getHistorico().then(historico => {
-      const newData = INITIAL_DATA;
-      for (const item of historico) {
-        newData.labels.push(item.date);
-        newData.datasets[0].data.push(item.data / 1048576);
-      }
-      setData(newData);
-    });
-  }, []);
+    getHistorico();
+  }, [getHistorico]);
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -44,15 +54,16 @@ export default function HistoricoPage({navigation}) {
       <BarChart
         // style={graphStyle}
         data={data}
-        width={Dimensions.get('screen').width}
+        width={Dimensions.get('window').width}
         height={300}
-        yAxisLabel="MB"
+        yAxisLabel="MB "
+        fromZero
         chartConfig={{
           backgroundColor: 'blue',
-          // backgroundGradientFrom: '#fb8c00',
-          //backgroundGradientTo: 'red',
-          decimalPlaces: 2, // optional, defaults to 2dp
-          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+          backgroundGradientFrom: 'green',
+          backgroundGradientTo: 'black',
+          decimalPlaces: 0, // optional, defaults to 2dp
+          color: (opacity = 100) => `rgba(255, 255, 255, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           style: {
             borderRadius: 16,

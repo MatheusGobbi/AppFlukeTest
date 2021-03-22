@@ -25,7 +25,7 @@ class Flukenator {
       },
     );
   };
-  getHistorico = async (startDate = '2020-08-17', endDate = '2020-08-21') => {
+  getHistorico = async (startDate = '2020-03-01', endDate = '2020-03-05') => {
     const response = await this.instance.get(
       `/usage/records?startDate=${startDate}&endDate=${endDate}`,
       {
