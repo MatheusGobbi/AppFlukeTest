@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {Text, View} from 'react-native';
 
 import AppIntroSlider from 'react-native-app-intro-slider';
 
@@ -10,17 +10,31 @@ import * as Animatable from 'react-native-animatable';
 const slides = [
   {
     key: '1',
-    title: 'Aprenda a mexer no app',
+    title: 'Agora que entrou no App vamos as dicas',
     text:
-      'aaaaaaaa dasdasdas dasda dasd dasdasd dasdasdasdas dasdasdas  dadadfadf',
+      'Vamos passar por algumas dicas de como usar o Aplicativo!',
     image: require('../assets/celApp.png'),
   },
   {
     key: '2',
-    title: 'Essa tela faz algo',
+    title: 'Essa é a Página inicial',
     text:
-      'aaaaaaaa dasdasdas dasda dasd dasdasd dasdasd matheus govvi sia ldaidan',
-    image: require('../assets/img2.png'),
+      'Nela aparece seu consumo instantâneo de Dados e Minutos, basta deslizar o dedo para a direita ou esquerda que o próximo card será mostrado!',
+    image: require('../assets/Home.png'),
+  },
+  {
+    key: '3',
+    title: 'Essa é a Página de pacotes ',
+    text:
+      'Nela é possível conferir o pacote mensal assinado e também comprar Dados e Minutos adicionais, apenas deslizando o modal para cima!',
+    image: require('../assets/Pacote.png'),
+  },
+  {
+    key: '4',
+    title: 'Tire suas dúvidas sobre o App da fluke',
+    text:
+      'Clicando no icone no canto superior direito você será levado para uma página onde estão as dúvidas frequentes sobre o App da fluke, clicando na pergunta você receberá a resposta!',
+    image: require('../assets/Faq.png'),
   },
 ];
 
@@ -40,7 +54,7 @@ function renderSlides({item}) {
           paddingBottom: 10,
           fontSize: 23,
           fontWeight: 'bold',
-          color: '#009CFF',
+          color: '#32CD32',
           textAlign: 'center',
         }}>
         {item.title}
@@ -61,9 +75,10 @@ function renderSlides({item}) {
 export default function Dicas(props) {
   return (
     <AppIntroSlider
+      backgroundColor={'white'}
       renderItem={renderSlides}
       data={slides}
-      activeDotStyle={{backgroundColor: '#009CFF', width: 30}}
+      activeDotStyle={{backgroundColor: '#32CD32', width: 30}}
       renderNextButton={() => <Text>Próximo</Text>}
       renderDoneButton={() => <Text>Acessar</Text>}
       onDone={() => props.route.params.setTutorial(true)}

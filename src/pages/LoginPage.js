@@ -6,7 +6,6 @@ import {validateEmail} from '../util/validacoes';
 import {
   View,
   KeyboardAvoidingView,
-  Image,
   TextInput,
   TouchableOpacity,
   Text,
@@ -27,23 +26,19 @@ export default function LoginPage(props) {
 
   return (
     <KeyboardAvoidingView style={styles.background}>
-
       <View style={styles.containerLogo}>
-      <Text style={styles.title}>Dark App</Text>
+        <Text style={styles.title}>Dark App</Text>
       </View>
 
       <View style={styles.container}>
-
         <TextInput
-        style={styles.input}
+          style={styles.input}
           placeholder="Digite seu email"
           autoCorrect={false}
           onChangeText={setEmail}
         />
 
-        <TouchableOpacity 
-          style={styles.btnEnviar}
-        onPress={autenticacao}>
+        <TouchableOpacity style={styles.btnEnviar} onPress={autenticacao}>
           <Text style={styles.enviarText}>Acessar</Text>
         </TouchableOpacity>
       </View>
@@ -87,13 +82,13 @@ const styles = StyleSheet.create({
   },
   enviarText: {
     color: 'black',
-    fontSize: 18
+    fontSize: 18,
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
     color: '#00FF00',
-  }
+  },
 });
 /**
   * <View style={{paddingTop: '40%'}}>
