@@ -21,7 +21,6 @@ class Flukenator {
     const response = await this.instance.get('/usage/packageInformation/', {
       headers: this.headers,
     });
-    console.log(this);
     return response.data;
   };
 

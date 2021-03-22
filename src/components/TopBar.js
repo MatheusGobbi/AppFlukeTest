@@ -19,7 +19,7 @@ export default function Topbar({navigation}) {
         <Feather.Button
           name="help-circle"
           size={24}
-          color="#32CD32"
+          color="#00FF00"
           backgroundColor={'transparent'}
           onPress={() =>
             navigation.navigate('Perguntas Frequentes sobre o App')
