@@ -1,29 +1,31 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, StyleSheet} from 'react-native';
 
 import Topbar from '../components/TopBar';
 
-
 import CardsRender from '../components/CardsRender';
 import LegendaHome from '../components/LegendaHome';
+import api from '../services/Flukenator';
 
-export default function Home({ navigation }) {
+export default function Home({navigation}) {
+  const [pacote, setPacote] = useState({
+    data: {available: 0, subscription: 0, topup: 0},
+    minutes: {available: 0, subscription: 0, topup: 0},
+  });
 
-
+  useEffect(() => {
+    api.getPacote().then(responsePacote => {
+      setPacote(responsePacote);
+    });
+  }, []);
 
   return (
-    <View
-      style={styles.container}>
-
+    <View style={styles.container}>
       <Topbar navigation={navigation} />
-
-      <CardsRender />
+      <CardsRender pacote={pacote} />
       <LegendaHome />
-
-
-
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -31,9 +33,5 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#000',
-  }
-})
-
-
-
-
+  },
+});

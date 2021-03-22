@@ -1,67 +1,29 @@
 import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView, FlatList, StatusBar } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Iconr from 'react-native-vector-icons/FontAwesome';
-import Forecast from '../components/ForeCast';
+import {StyleSheet, SafeAreaView} from 'react-native';
+
 import HistoryCard from '../components/HistoryCard';
 import Topbar from '../components/TopBar';
 import HistCardDay from '../components/HistCardDay';
 
-
-
-
-export default function Hist({ navigation }) {
+export default function Hist({navigation}) {
   return (
     <SafeAreaView style={styles.safe}>
+      <Topbar navigation={navigation} />
 
-      <Topbar navigation={navigation}/>
-
-    
       <HistoryCard />
-      <HistCardDay/>
-
+      <HistCardDay />
     </SafeAreaView>
-  )
+  );
 }
 
-
 const styles = StyleSheet.create({
-
   safe: {
     alignItems: 'center',
     backgroundColor: 'black',
-    
-    flexDirection: 'column'
-  }
+
+    flexDirection: 'column',
+  },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*import React from 'react';
 import {Text} from 'react-native-svg';
@@ -108,18 +70,6 @@ export default function Pizza() {
     </PieChart>
   );
 }*/
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 import React from 'react';

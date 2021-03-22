@@ -1,32 +1,28 @@
-import React, { Component } from "react";
-import { View, StyleSheet, Text, SafeAreaView, FlatList, StatusBar } from 'react-native';
-
-
+import React, {Component} from 'react';
+import {
+  View,
+  StyleSheet,
+  Text,
+  SafeAreaView,
+  FlatList,
+  StatusBar,
+} from 'react-native';
 
 import ListFaq from '../components/ListFaq';
 
-
-
 export default function Faq({navigation}) {
-
   return (
     <SafeAreaView style={styles.safe}>
-
       <View>
         <StatusBar backgroundColor={'#000'} barStyle={'light-content'} />
       </View>
 
-      <ListFaq navigation={navigation}/>
-
+      <ListFaq navigation={navigation} />
     </SafeAreaView>
   );
-
 }
 
-
-
 const styles = StyleSheet.create({
-
   safe: {
     alignItems: 'center',
     backgroundColor: 'black',
@@ -34,8 +30,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     flex: 1,
     justifyContent: 'center',
-
-  }
+  },
 });
 
 /*

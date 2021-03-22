@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "yarn eslint .",
+    "lint:fix": "yarn eslint . --fix"
   },
   "dependencies": {
     "@expo/vector-icons": "^12.0.4",
