@@ -1,19 +1,14 @@
 import * as React from 'react';
-import {Text, View, StyleSheet, StatusBar, SafeAreaView} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import Feather from 'react-native-vector-icons/Feather';
 
 import Home from '../pages/HomePage';
-import Faq from '../pages/FaqPage';
 import Hist from '../pages/HistoricoPage';
 import Shop from '../pages/PacotePage';
-import Topbar from './TopBar';
 
 const Tab = createBottomTabNavigator();
 
-export default function MyTabs() {
+export default function TabNavigator() {
   return (
     <Tab.Navigator
       initialRouteName={'Home'}
@@ -32,7 +27,6 @@ export default function MyTabs() {
           ),
         }}
       />
-
       <Tab.Screen
         name="Home"
         component={Home}
@@ -56,9 +50,3 @@ export default function MyTabs() {
     </Tab.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  tabs: {
-    fontSize: 45,
-  },
-});

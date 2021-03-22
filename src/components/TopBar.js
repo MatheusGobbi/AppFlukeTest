@@ -21,7 +21,9 @@ export default function Topbar({navigation}) {
           size={24}
           color="#32CD32"
           backgroundColor={'transparent'}
-          onPress={() => navigation.navigate('Peruntas Frequentes sobre o App')}
+          onPress={() =>
+            navigation.navigate('Perguntas Frequentes sobre o App')
+          }
         />
       </View>
     </View>

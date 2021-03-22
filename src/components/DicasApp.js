@@ -58,7 +58,7 @@ function renderSlides({item}) {
   );
 }
 
-export default function Dicas({navigation}) {
+export default function Dicas(props) {
   return (
     <AppIntroSlider
       renderItem={renderSlides}
@@ -66,7 +66,7 @@ export default function Dicas({navigation}) {
       activeDotStyle={{backgroundColor: '#009CFF', width: 30}}
       renderNextButton={() => <Text>Próximo</Text>}
       renderDoneButton={() => <Text>Acessar</Text>}
-      onDone={() => navigation.navigate('Navegacao')}
+      onDone={() => props.route.params.setTutorial(true)}
     />
   );
 }
