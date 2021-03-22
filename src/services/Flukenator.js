@@ -16,5 +16,14 @@ class Flukenator {
     });
     return response.data;
   };
+  comprarAdicional = async (data, minutes) => {
+    return await this.instance.post(
+      '/usage/topupPurchase',
+      {data, minutes},
+      {
+        headers: this.headers,
+      },
+    );
+  };
 }
 export default new Flukenator('https://flukenator.herokuapp.com/');

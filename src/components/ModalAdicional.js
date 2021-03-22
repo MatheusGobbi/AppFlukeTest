@@ -1,14 +1,19 @@
-import React, {useRef, useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import React, {useRef, useState, useCallback} from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ActivityIndicator,
+} from 'react-native';
 import {Modalize} from 'react-native-modalize';
 import Feather from 'react-native-vector-icons/Feather';
 
-export default function Adicional() {
+export default function ModalAdicional({fnCompraAdicional}) {
   const modalizeRef = useRef(null);
-
-  const onOpen = () => {
-    modalizeRef.current?.open();
-  };
+  // TODO: Corrigir estado do calculo original
+  // TODO: toflixed em tudo
+  const [carregando, setCarregando] = useState(false);
 
   const [contadorData, setContadorData] = useState(0.0);
   const [totalData, setTotalData] = useState(0);
@@ -16,37 +21,37 @@ export default function Adicional() {
   const [totalMin, setTotalMin] = useState(0);
   const [total, setTotal] = useState(0);
 
-  function incrementData() {
+  const incrementData = useCallback(() => {
     if (contadorData < 10) {
       setContadorData(contadorData + 0.5);
       setTotal(total + 4.99);
       setTotalData(totalData + 4.99);
     }
-  }
+  }, [contadorData, total, totalData]);
 
-  function decrementData() {
+  const decrementData = useCallback(() => {
     if (contadorData > 0) {
       setContadorData(contadorData - 0.5);
       setTotal(total - 4.99);
       setTotalData(totalData - 4.99);
     }
-  }
+  }, [contadorData, total, totalData]);
 
-  function incrementMin() {
+  const incrementMin = useCallback(() => {
     if (contadorMin < 600) {
       setContadorMin(contadorMin + 30);
       setTotal(total + 3.0);
       setTotalMin(totalMin + 3.0);
     }
-  }
+  }, [totalMin, contadorMin, total]);
 
-  function decrementMin() {
+  const decrementMin = useCallback(() => {
     if (contadorMin > 0) {
       setContadorMin(contadorMin - 30);
       setTotal(total - 3.0);
       setTotalMin(totalMin - 3.0);
     }
-  }
+  }, [totalMin, contadorMin, total]);
 
   return (
     <View style={styles.container}>
@@ -147,8 +152,28 @@ export default function Adicional() {
             <Text style={{fontSize: 22}}> R${total}</Text>
           </View>
 
-          <TouchableOpacity style={styles.btnComprar}>
-            <Text style={{fontSize: 18, fontWeight: 'bold'}}>Comprar</Text>
+          <TouchableOpacity
+            style={styles.btnComprar}
+            onPress={() => {
+              setCarregando(true);
+              fnCompraAdicional(contadorData * 1000, contadorMin).finally(
+                () => {
+                  setContadorData(0);
+                  setContadorMin(0);
+                  setTotal(0);
+                  setCarregando(false);
+                },
+              );
+            }}
+            disabled={carregando}>
+            <Text style={{fontSize: 18, fontWeight: 'bold', marginRight: 12}}>
+              Comprar
+            </Text>
+            {carregando && (
+              <View>
+                <ActivityIndicator size="small" color="#0000ff" />
+              </View>
+            )}
           </TouchableOpacity>
         </View>
       </Modalize>
@@ -195,6 +220,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 8,
+    flexDirection: 'row',
   },
   txtItens: {
     alignItems: 'center',

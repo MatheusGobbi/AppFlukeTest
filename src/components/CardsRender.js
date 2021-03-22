@@ -28,7 +28,7 @@ const InternalCard = ({card}) => (
           {card.tipo}
         </Text>
         <ProgressCircle
-          percent={calcPorcent(card.available, card.subscription)}
+          percent={calcPorcent(card.available, card.subscription + card.topup)}
           radius={140}
           borderWidth={10}
           color="#32CD32"
@@ -43,7 +43,7 @@ const InternalCard = ({card}) => (
           </Text>
         </ProgressCircle>
         <Text style={{padding: 20}}>
-          de {card.subscription} {card.legenda}
+          de {card.subscription + card.topup} {card.legenda}
         </Text>
       </View>
     </View>

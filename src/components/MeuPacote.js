@@ -1,16 +1,19 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function MeuPacote({pacote}) {
-  console.log(pacote.data.subscription);
-  const totalData = (pacote.data.subscription / 1000) * 9.98;
-  const totalMin = (pacote.minutes.subscription / 30) * 3.0;
-  const total = totalData + totalMin + 8.0;
-  console.log(totalData);
-  console.log(totalMin);
-  console.log(total);
+  const totalData = useMemo(() => (pacote.data.subscription / 1000) * 9.98, [
+    pacote,
+  ]);
+  const totalMin = useMemo(() => (pacote.minutes.subscription / 30) * 3.0, [
+    pacote,
+  ]);
+  const total = useMemo(() => totalData + totalMin + 8.0, [
+    totalData,
+    totalMin,
+  ]);
 
   return (
     <Animatable.View
@@ -33,12 +36,18 @@ export default function MeuPacote({pacote}) {
         <View style={styles.pac}>
           <View style={styles.intView}>
             <Icon name="at" size={17} color="#4F4F4F" />
-            <Text style={{fontSize: 30, fontWeight: 'bold'}}> 2000</Text>
+            <Text style={{fontSize: 30, fontWeight: 'bold'}}>
+              {' '}
+              {pacote.data.subscription}
+            </Text>
             <Text> mb</Text>
           </View>
           <View style={styles.intView}>
             <Icon name="phone" size={17} color="#4F4F4F" />
-            <Text style={{fontSize: 30, fontWeight: 'bold'}}> 30</Text>
+            <Text style={{fontSize: 30, fontWeight: 'bold'}}>
+              {' '}
+              {pacote.minutes.subscription}
+            </Text>
             <Text> min</Text>
           </View>
         </View>
@@ -61,7 +70,9 @@ export default function MeuPacote({pacote}) {
 
           <View
             style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text style={{fontSize: 25, fontWeight: 'bold'}}>R$45,00</Text>
+            <Text style={{fontSize: 25, fontWeight: 'bold'}}>
+              R${total.toFixed(2)}
+            </Text>
           </View>
         </View>
       </View>

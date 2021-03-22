@@ -8,7 +8,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import Home from '../pages/HomePage';
 import Faq from '../pages/FaqPage';
 import Hist from '../pages/HistoricoPage';
-import Shop from '../pages/Shop';
+import Shop from '../pages/PacotePage';
 import Topbar from './TopBar';
 
 const Tab = createBottomTabNavigator();

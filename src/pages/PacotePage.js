@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {SafeAreaView} from 'react-native';
 
 import TopBar from '../components/TopBar';
-import Adicional from '../components/testeModalize';
+import ModalAdicional from '../components/ModalAdicional';
 import MeuPacote from '../components/MeuPacote';
 import api from '../services/Flukenator';
 
@@ -25,7 +25,7 @@ export default function Shop({navigation}) {
 
       <MeuPacote pacote={pacote} />
 
-      <Adicional />
+      <ModalAdicional fnCompraAdicional={api.comprarAdicional} />
     </SafeAreaView>
   );
 }

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import {View, StyleSheet} from 'react-native';
 
 import Topbar from '../components/TopBar';
@@ -13,11 +13,18 @@ export default function Home({navigation}) {
     minutes: {available: 0, subscription: 0, topup: 0},
   });
 
-  useEffect(() => {
-    api.getPacote().then(responsePacote => {
-      setPacote(responsePacote);
-    });
+  const getPacote = useCallback(() => {
+    api.getPacote().then(responsePacote => setPacote(responsePacote));
   }, []);
+
+  useEffect(() => {
+    getPacote();
+  }, [getPacote]);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', getPacote);
+    return unsubscribe;
+  }, [getPacote, navigation]);
 
   return (
     <View style={styles.container}>
