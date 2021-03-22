@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import ListFaq from '../components/ListFaq';
+import FaqText from '../util/FaqText';
 
 export default function Faq({navigation}) {
   return (
@@ -17,7 +18,7 @@ export default function Faq({navigation}) {
         <StatusBar backgroundColor={'#000'} barStyle={'light-content'} />
       </View>
 
-      <ListFaq navigation={navigation} />
+      <ListFaq navigation={navigation} perguntas={FaqText} />
     </SafeAreaView>
   );
 }
@@ -32,20 +33,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-/*
-
- <View>
-
-      <Header transparent />
-
-        <Accordion
-          dataArray={perguntas}
-          icon="add"
-          expandedIcon="remove"
-          iconStyle={{ color: "green" }}
-          expandedIconStyle={{ color: "red" }}
-          expanded={[0]}
-        />
-      </View>
-*/
