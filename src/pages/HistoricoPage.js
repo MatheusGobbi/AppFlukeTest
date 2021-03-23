@@ -129,7 +129,6 @@ export default function HistoricoPage({navigation}) {
             maxDate={'2020-08-21'}
             format="YYYY-MM-DD"
             placeholder="Selecione uma data"
-            style={styles.date}
             date={dataInicio}
             onDateChange={changeDateInit}
             iconComponent={
@@ -149,7 +148,6 @@ export default function HistoricoPage({navigation}) {
             maxDate={'2020-08-21'}
             format="YYYY-MM-DD"
             placeholder="Selecione uma data"
-            style={styles.date}
             date={dataFim}
             onDateChange={changeDateEnd}
             iconComponent={

@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {Modalize} from 'react-native-modalize';
 import Feather from 'react-native-vector-icons/Feather';
+import {showMessage} from 'react-native-flash-message';
 
 export default function ModalAdicional({fnCompraAdicional}) {
   const modalizeRef = useRef(null);
@@ -147,16 +148,25 @@ export default function ModalAdicional({fnCompraAdicional}) {
             style={styles.btnComprar}
             onPress={() => {
               setCarregando(true);
-              fnCompraAdicional(contadorData * 1000, contadorMin).finally(
-                () => {
+              fnCompraAdicional(contadorData * 1000, contadorMin)
+                .catch(() => {
+                  showMessage({
+                    type: 'danger',
+                    message: 'Não conseguimos realizar a compra :(',
+                  });
+                })
+                .finally(() => {
                   setContadorData(0);
                   setContadorMin(0);
                   setTotalMin(0);
                   setTotalData(0);
                   setTotal(0);
                   setCarregando(false);
-                },
-              );
+                  showMessage({
+                    type: 'success',
+                    message: 'Compra realizada com sucesso!',
+                  });
+                });
             }}
             disabled={carregando}>
             <Text style={{fontSize: 18, fontWeight: 'bold', marginRight: 12}}>
