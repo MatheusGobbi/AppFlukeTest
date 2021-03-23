@@ -12,7 +12,7 @@ const slides = [
     key: '1',
     title: 'Agora que entrou no App vamos as dicas',
     text: 'Vamos passar por algumas dicas de como usar o Aplicativo!',
-    image: require('../assets/celApp.png'),
+    image: require('../assets/Inicial.png'),
   },
   {
     key: '2',
@@ -30,6 +30,13 @@ const slides = [
   },
   {
     key: '4',
+    title: 'Essa é a página de histórico de consumo',
+    text:
+      'Consulte seu histórico de consumo, selecione uma data de inicio e uma de fim para consultar o histórico entre essas datas',
+    image: require('../assets/Historico.png'),
+  },
+  {
+    key: '5',
     title: 'Tire suas dúvidas sobre o App da fluke',
     text:
       'Clicando no icone no canto superior direito você será levado para uma página onde estão as dúvidas frequentes sobre o App da fluke, clicando na pergunta você receberá a resposta!',
