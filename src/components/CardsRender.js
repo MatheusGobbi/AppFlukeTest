@@ -34,8 +34,7 @@ const InternalCard = ({card}) => (
 );
 
 export default function CardsRender({pacote}) {
-  const pacoteSwiper = useMemo(
-    () => [
+  const pacoteSwiper = useMemo(() => [
       {
         available: pacote.data.available,
         subscription: pacote.data.subscription,

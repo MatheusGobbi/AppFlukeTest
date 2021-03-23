@@ -1,20 +1,12 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {
-  StyleSheet,
-  SafeAreaView,
-  Dimensions,
-  Text,
-  View,
-  Button,
-} from 'react-native';
+import {StyleSheet, SafeAreaView, Dimensions, Text, View} from 'react-native';
+import Feather from 'react-native-vector-icons/Feather';
 
 import Topbar from '../components/TopBar';
 import {BarChart} from 'react-native-chart-kit';
 import api from '../services/Flukenator';
 
 import DatePicker from 'react-native-datepicker';
-
-import DateTimePicker from '@react-native-community/datetimepicker';
 
 export default function HistoricoPage({navigation}) {
   const [dataInicio, setDataInicio] = useState('');
@@ -27,19 +19,6 @@ export default function HistoricoPage({navigation}) {
   const changeDateEnd = valor => {
     setDataFim(valor);
   };
-
-  /*const [show, setShow] = useState(false);
-  const init = date;
-
-  const onChange = (event, selectedDate) => {
-    setDate(selectedDate);
-  };
-
-  const showDatepicker = () => {
-    setShow(true);
-  };
-
-  */
 
   const [data, setData] = useState({
     labels: [],
@@ -90,7 +69,7 @@ export default function HistoricoPage({navigation}) {
         <BarChart
           data={data}
           width={Dimensions.get('window').width}
-          height={210}
+          height={0.53 * Dimensions.get('window').width}
           yAxisLabel="MB "
           fromZero
           chartConfig={{
@@ -119,7 +98,7 @@ export default function HistoricoPage({navigation}) {
         <BarChart
           data={voice}
           width={Dimensions.get('window').width}
-          height={210}
+          height={0.53 * Dimensions.get('window').width}
           yAxisLabel="MIN "
           fromZero
           chartConfig={{
@@ -149,9 +128,18 @@ export default function HistoricoPage({navigation}) {
             minDate={'2020-02-28'}
             maxDate={'2020-08-21'}
             format="YYYY-MM-DD"
+            placeholder="Selecione uma data"
             style={styles.date}
             date={dataInicio}
             onDateChange={changeDateInit}
+            iconComponent={
+              <Feather
+                name="calendar"
+                size={30}
+                color="white"
+                style={{padding: 5}}
+              />
+            }
           />
         </View>
         <View>
@@ -160,9 +148,18 @@ export default function HistoricoPage({navigation}) {
             minDate={dataInicio}
             maxDate={'2020-08-21'}
             format="YYYY-MM-DD"
+            placeholder="Selecione uma data"
             style={styles.date}
             date={dataFim}
             onDateChange={changeDateEnd}
+            iconComponent={
+              <Feather
+                name="calendar"
+                size={30}
+                color="white"
+                style={{padding: 5}}
+              />
+            }
           />
         </View>
       </View>
@@ -182,24 +179,3 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 });
-
-/**
- *
-      <View>
-        <View>
-          <Button onPress={showDatepicker} title="Show date picker!" />
-        </View>
-        {show && (
-          <DateTimePicker
-
-            minimumDate={new Date(2020, 2, 28)}
-            testID="dateTimePicker"
-            value={new Date(2020, 5, 10)}
-            mode={'date'}
-            is24Hour={true}
-            display="default"
-            onChange={onChange}
-          />
-        )}
-      </View>
- */

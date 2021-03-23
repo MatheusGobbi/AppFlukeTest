@@ -64,11 +64,7 @@ export default function ModalAdicional({fnCompraAdicional}) {
             <View style={styles.leftmenu}>
               <View style={styles.leftmenuline}>
                 <Feather
-                  style={{
-                    paddingLeft: '10%',
-                    paddingRight: '5%',
-                    paddingTop: '8%',
-                  }}
+                  style={styles.iconPacoteData}
                   name="at-sign"
                   size={23}
                   color="#696969"
@@ -83,11 +79,7 @@ export default function ModalAdicional({fnCompraAdicional}) {
 
               <View style={styles.leftmenuline}>
                 <Feather
-                  style={{
-                    paddingLeft: '10%',
-                    paddingRight: '5%',
-                    paddingTop: '2%',
-                  }}
+                  style={styles.iconPacotePhone}
                   name="phone-call"
                   size={23}
                   color="#696969"
@@ -256,5 +248,15 @@ const styles = StyleSheet.create({
   leftmenuline: {
     flex: 1,
     flexDirection: 'row',
+  },
+  iconPacotePhone: {
+    paddingLeft: '10%',
+    paddingRight: '5%',
+    paddingTop: '2%',
+  },
+  iconPacoteData: {
+    paddingLeft: '10%',
+    paddingRight: '5%',
+    paddingTop: '8%',
   },
 });

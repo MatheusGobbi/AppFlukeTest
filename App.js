@@ -9,7 +9,11 @@ import TutorialNavigator from './src/routes/tutorialNavigator';
 import LoginNavigator from './src/routes/loginNavigator';
 import {LogBox} from 'react-native';
 
-LogBox.ignoreLogs(['Non-serializable values were found']);
+LogBox.ignoreLogs([
+  'Non-serializable values were found',
+  'componentWillReceiveProps has been renamed',
+  'DatePickerAndroid has been merged with DatePickerIOS'
+]);
 
 export default function App() {
   const [login, setLogin] = useState(false);

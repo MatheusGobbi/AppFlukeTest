@@ -1,8 +1,9 @@
 import React, {useEffect, useState, useCallback} from 'react';
 import {View, StyleSheet} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
 
 import Topbar from '../components/TopBar';
-
 import CardsRender from '../components/CardsRender';
 import LegendaHome from '../components/LegendaHome';
 import api from '../services/Flukenator';
