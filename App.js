@@ -12,7 +12,8 @@ import {LogBox} from 'react-native';
 LogBox.ignoreLogs([
   'Non-serializable values were found',
   'componentWillReceiveProps has been renamed',
-  'DatePickerAndroid has been merged with DatePickerIOS'
+  'DatePickerAndroid has been merged with DatePickerIOS',
+  'Animated: `useNativeDriver` was not specified',
 ]);
 
 export default function App() {
