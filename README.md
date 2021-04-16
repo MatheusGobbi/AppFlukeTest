@@ -61,5 +61,6 @@ Utilizando a ferramenta Appium, foram desenvolvidos scripts em java para testes 
 - O teste consiste em navegar pelas telas no aplicativo, para verificar sem nenhuma está "quebrando", inclusive fazendo compras de adicionais e consultando histórico.
 
 Teste rodando abaixo.
+
 ![Teste](https://github.com/MatheusGobbi/AppFlukeTest/blob/main/__appium_tests__/DarkTestAppium/TesteAppVideo.gif)
 
