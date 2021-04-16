@@ -53,3 +53,13 @@ Nas tres abas existe um icone "?" que quando clicado leva para uma tela com as p
 
 ![FAQ](https://github.com/MatheusGobbi/AppFlukeTest/blob/main/src/assets/Faq.png)
 
+
+### Teste
+Script feito para teste de navegação automatizada no App.
+Utilizando a ferramenta Appium, foram desenvolvidos scripts em java para testes de navegação dentro do App (com a premissa de não alterar nada no código fonte do App já entregue, optei por utilizar o xpath para a maioria das navegações).
+
+- O teste consiste em navegar pelas telas no aplicativo, para verificar sem nenhuma está "quebrando", inclusive fazendo compras de adicionais e consultando histórico.
+
+Teste rodando abaixo.
+![Teste](https://github.com/MatheusGobbi/AppFlukeTest/blob/main/__appium_tests__/DarkTestAppium/TesteAppVideo.gif)
+
