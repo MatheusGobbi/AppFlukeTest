@@ -6,6 +6,7 @@ App desenvolvido no processo seletivo da Fluke Operadora.
 ## Instalação 
 - Clone o repositório em seu computador
 - Na pasta do projeto pelo terminal execute os seguintes comandos `yarn && yarn start` e `yarn run android`
+- Ou faça o download do [APK](https://www.mediafire.com/file/7skgkteugdojvh3/DarkApp.apk/file) e instale no seu celular ou emulador.
 
 ## Modo de uso
 1. Ao abrir o App será direcionado para a tela de autenticação, onde é requerido apenas um email.
